@@ -1,0 +1,32 @@
+<link rel="import" href="../paper-material/paper-material.html">
+<link rel="import" href="../ean-rates/ean-rates.html">
+<link rel="import" href="../laterooms-rate/laterooms-rate.html">
+
+<!--
+`<rate-lister>` list rates for time in a hotel
+@demo demo.html
+-->
+
+<dom-module id="rate-lister">
+  <template>
+    <style>
+    :host {display:inline-block}
+    paper-material {max-width:300px}
+    </style>
+
+    <paper-material class="layout middle"  hidden="{{!lateroomLink}}">
+      <laterooms-rate date="{{date}}" nights="{{nights}}" hotelId="{{lateHotelId}}" link="{{lateroomLink}}"></laterooms-rate>
+    </paper-material>
+    <paper-material class="layout middle" hidden="{{!eanLink}}">
+      <ean-rates date="{{date}}" nights="{{nights}}" hotelId="{{eanHotelId}}" link="{{eanLink}}"></ean-rates>
+    </paper-material>
+    <paper-material class="layout middle">
+      <content></content>
+    </paper-material>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: "rate-lister"
+  });
+</script>
