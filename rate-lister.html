@@ -3,23 +3,30 @@
 <link rel="import" href="../laterooms-rate/laterooms-rate.html">
 
 <!--
-`<rate-lister>` list rates for time in a hotel
+`<rate-lister ean-hotel-id="{{eanHotelId}}" late-hotel-id="{{lateHotelId}}" ean-id="eanId" late-id="lateId"></rate-lister>` list rates for time in a hotel
 @demo demo.html
 -->
 
 <dom-module id="rate-lister">
   <template>
     <style>
-    :host {display:inline-block}
-    paper-material {max-width:300px}
+      :host {display:inline-block}
+      paper-material {max-width:300px}
     </style>
-
+    
+    <div class="box center horizontal layout">
+      <h4>Check in</h4><paper-button-date-picker date="{{date}}" locale="en-gb"></paper-button-date-picker>
+      <paper-input style="width:80px" min="1" max="20" type="number" value="{{nights}}" label="nights"></paper-input>
+    </div>
+    
     <paper-material class="layout middle"  hidden="{{!lateroomLink}}">
-      <laterooms-rate date="{{date}}" nights="{{nights}}" hotelId="{{lateHotelId}}" link="{{lateroomLink}}"></laterooms-rate>
+      <laterooms-rate date="{{date}}" nights="{{nights}}" hotel-id="{{lateHotelId}}" link="{{lateroomLink}}" affiliate-id="{{LateId}}" url="{{url}}"></laterooms-rate>
     </paper-material>
+    
     <paper-material class="layout middle" hidden="{{!eanLink}}">
-      <ean-rates date="{{date}}" nights="{{nights}}" hotelId="{{eanHotelId}}" link="{{eanLink}}"></ean-rates>
+      <ean-rates date="{{date}}" nights="{{nights}}" hotelId="{{eanHotelId}}" link="{{eanLink}}" affiliate-id="{{eanId}}"></ean-rates>
     </paper-material>
+    
     <paper-material class="layout middle">
       <content></content>
     </paper-material>
