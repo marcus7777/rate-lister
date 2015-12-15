@@ -1,0 +1,16 @@
+// need fixing {
+  "name": "rate-lister",
+  "version": "1.0.0",
+  "description": "rate-lister",
+  "main": "rate-lister.html",
+  "keywords": [
+    "polymer","web-components"
+  ],
+  "dependencies": {
+    "paper-date-picker":"marcus7777/paper-date-picker",
+    "paper-input":"",
+    "laterooms-rate":"",
+    "paper-material":"",
+    "ean-rates":""
+  }
+}
