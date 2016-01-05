@@ -20,13 +20,13 @@
       <paper-input style="width:80px" min="1" max="20" type="number" value="{{nights}}" label="nights"></paper-input>
     </div>
     
-    <paper-material class="layout middle"  hidden="{{!lateroomLink}}">
+    <a href="{{lateroomLink}}"><paper-material class="layout middle"  hidden="{{!lateroomLink}}">
       <laterooms-rate date="{{date}}" nights="{{nights}}" hotel-id="{{lateHotelId}}" link="{{lateroomLink}}" affiliate-id="{{LateId}}" url="{{url}}"></laterooms-rate>
-    </paper-material>
+    </paper-material></a>
     
-    <paper-material class="layout middle" hidden="{{!eanLink}}">
+    <a href="{{eanLink}}"><paper-material class="layout middle" hidden="{{!eanLink}}">
       <ean-rates date="{{date}}" nights="{{nights}}" hotelId="{{eanHotelId}}" link="{{eanLink}}" affiliate-id="{{eanId}}"></ean-rates>
-    </paper-material>
+    </paper-material></a>
     
     <paper-material class="layout middle">
       <content></content>
