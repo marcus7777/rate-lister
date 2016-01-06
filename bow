@@ -8,9 +8,7 @@
   ],
   "dependencies": {
     "paper-date-picker":"marcus7777/paper-date-picker",
-    "paper-input":"",
-    "laterooms-rate":"",
-    "paper-material":"",
-    "ean-rates":""
+    "laterooms-rate":"marcus7777/laterooms-rate",
+    "ean-rates":"marcus7777/ean-rates"
   }
 }
