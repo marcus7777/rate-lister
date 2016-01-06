@@ -25,7 +25,7 @@
       <laterooms-rate date="{{date}}" nights="{{nights}}" hotel-id="{{lateHotelId}}" link="{{lateroomLink}}" affiliate-id="{{LateId}}" url="{{url}}"></laterooms-rate>
     </paper-material></a>
     
-    <a href="{{eanLink}}"><paper-material class="layout middle" hidden="{{!eanLink}}">
+    <a href="{{eanLink}}"><paper-material class="layout middle" hidden="{{!showEan}}">
       <ean-rates date="{{date}}" nights="{{nights}}" hotelId="{{eanHotelId}}" link="{{eanLink}}" affiliate-id="{{eanId}}"></ean-rates>
     </paper-material></a>
     
@@ -39,10 +39,11 @@
     is: "rate-lister",
     properties: {
       nights: {type: Number, value: 2},
-      showLate: {computed:"getShowLate(lateroomLink)", value: false}
+      showLate: {computed:"getShow(lateroomLink)", value: false},
+      showEan: {computed:"getShow(eanLink)", value: false}
     },
-    getShowLate: function(lateroomLink){
-      return true
+    getShow: function(link){
+      return link.indexOf('http') === -1
     }
   });
 </script>
