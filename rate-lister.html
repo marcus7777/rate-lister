@@ -50,8 +50,16 @@
       this.show = true
     },
     getShow: function(link, show, rate){
-      if (show && rate && link) {
-        return link.indexOf('http') !== -1
+      if (show) {
+        if (rate) { 
+          if (link) {
+            return link.indexOf('http') !== -1
+          } else {
+            return false
+          }
+        } else {
+          return false
+        }
       } else {
         return false
       }
