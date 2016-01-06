@@ -21,7 +21,7 @@
       <paper-input style="width:80px" min="1" max="9" type="number" value="{{nights}}" label="nights"></paper-input>
       <paper-button hidden="{{show}}" on-tap="showCard">Show</paper-button>
     </div>
-    <div hidden="{{!show}}">
+    <div>
       <a href="{{lateroomLink}}"><paper-material class="layout middle"  hidden="{{!showLate}}">
         <laterooms-rate date="{{date}}" nights="{{nights}}" hotel-id="{{lateHotelId}}" link="{{lateroomLink}}" affiliate-id="{{LateId}}" url="{{url}}"></laterooms-rate>
       </paper-material></a>
