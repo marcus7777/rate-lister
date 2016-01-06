@@ -21,7 +21,7 @@
       <paper-input style="width:80px" min="1" max="9" type="number" value="{{nights}}" label="nights"></paper-input>
     </div>
     
-    <a href="{{lateroomLink}}"><paper-material class="layout middle"  hidden="{{!lateroomLink}}">
+    <a href="{{lateroomLink}}"><paper-material class="layout middle"  hidden="{{!showLate}}">
       <laterooms-rate date="{{date}}" nights="{{nights}}" hotel-id="{{lateHotelId}}" link="{{lateroomLink}}" affiliate-id="{{LateId}}" url="{{url}}"></laterooms-rate>
     </paper-material></a>
     
@@ -38,7 +38,11 @@
   Polymer({
     is: "rate-lister",
     properties: {
-      nights: {type: Number, value: 2}
+      nights: {type: Number, value: 2},
+      showLate: {computed:"getShowLate(lateroomLink)"}
+    },
+    getShowLate: function(lateroomLink){
+      return false
     }
   });
 </script>
