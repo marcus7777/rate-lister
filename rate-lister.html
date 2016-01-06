@@ -39,10 +39,10 @@
     is: "rate-lister",
     properties: {
       nights: {type: Number, value: 2},
-      showLate: {computed:"getShowLate(lateroomLink)"}
+      showLate: {computed:"getShowLate(lateroomLink)", value: false}
     },
     getShowLate: function(lateroomLink){
-      return false
+      return true
     }
   });
 </script>
