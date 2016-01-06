@@ -21,17 +21,15 @@
       <paper-input style="width:80px" min="1" max="9" type="number" value="{{nights}}" label="nights"></paper-input>
       <paper-button hidden="{{show}}" on-tap="showCard">Show</paper-button>
     </div>
-    <div hidden="{{!show}}">
       <a href="{{lateroomLink}}"><paper-material class="layout middle"  hidden="{{!showLate}}">
         <laterooms-rate date="{{date}}" nights="{{nights}}" hotel-id="{{lateHotelId}}" link="{{lateroomLink}}" affiliate-id="{{LateId}}" url="{{url}}"></laterooms-rate>
       </paper-material></a>
       <a href="{{eanLink}}"><paper-material class="layout middle" hidden="{{!showEan}}">
         <ean-rates date="{{date}}" nights="{{nights}}" hotelId="{{eanHotelId}}" link="{{eanLink}}" affiliate-id="{{eanId}}"></ean-rates>
       </paper-material></a>
-      <paper-material class="layout middle">
+      <paper-material class="layout middle" hidden="{{!show}}">
         <content></content>
       </paper-material>
-    </div>
   </template>
 </dom-module>
 <script>
@@ -41,12 +39,16 @@
       nights: {type: Number, value: 2},
       lateroomLink: {type: String ,value: ""},
       eanLink: {type: String ,value: ""},
-      showLate: {computed:"getShow(lateroomLink)", value: false},
-      showEan: {computed:"getShow(eanLink)", value: false}
+      showLate: {computed:"getShow(lateroomLink, show)", value: false},
+      showEan: {computed:"getShow(eanLink, show)", value: false}
     },
     showCard: function () {this.show = true},
-    getShow: function(link){
-      return link.indexOf('http') !== -1
+    getShow: function(link, show){
+      if (show) {
+        return link.indexOf('http') !== -1
+      } else {
+        return false
+      }
     }
   });
 </script>
