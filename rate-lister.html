@@ -13,7 +13,7 @@
   <template>
     <style>
       :host {display:inline-block}
-      paper-material {max-width:300px}
+      paper-material {max-width:300px;}
     </style>
     
     <div class="box center horizontal layout">
@@ -22,7 +22,7 @@
       <paper-button hidden="{{show}}" on-tap="showCard">Show</paper-button>
     </div>
       <a href="{{lateroomLink}}"><paper-material class="layout middle"  hidden="{{!showLate}}">
-        <laterooms-rate date="{{date}}" nights="{{nights}}" hotel-id="{{lateHotelId}}" link="{{lateroomLink}}" rate="{{lateRate}}" affiliate-id="{{LateId}}" url="{{url}}"></laterooms-rate>
+        <laterooms-rate date="{{date}}" url="{{lateUrl}}" nights="{{nights}}" hotel-id="{{lateHotelId}}" link="{{lateroomLink}}" rate="{{lateRate}}" affiliate-id="{{LateId}}"></laterooms-rate>
       </paper-material></a>
       <a href="{{eanLink}}"><paper-material class="layout middle" hidden="{{!showEan}}">
         <ean-rates date="{{date}}" nights="{{nights}}" hotelId="{{eanHotelId}}" link="{{eanLink}}" rate="{{eanRate}}" affiliate-id="{{eanId}}"></ean-rates>
@@ -39,10 +39,13 @@
       nights: {type: Number, value: 2},
       lateroomLink: {type: String ,value: ""},
       eanLink: {type: String ,value: ""},
+      show: {value: false},
       showLate: {computed:"getShow(lateroomLink, show ,lateRate)", value: false},
       showEan: {computed:"getShow(eanLink, show, eanRate)", value: false}
     },
-    showCard: function () {this.show = true},
+    showCard: function () {
+      this.show = true
+    },
     getShow: function(link, show, rate){
       if (show && rate) {
         return link.indexOf('http') !== -1
