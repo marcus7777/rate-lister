@@ -42,6 +42,7 @@
       showLate: {computed:"getShow(lateroomLink)", value: false},
       showEan: {computed:"getShow(eanLink)", value: false}
     },
+    showCard: function () {this.show = true},
     getShow: function(link){
       return link.indexOf('http') === -1
     }
